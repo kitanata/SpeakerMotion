@@ -2,18 +2,23 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
 
-  $routeProvider.when('/login', {
-    templateUrl: 'login.html',
-    controller: 'LoginController'
-  });
-
   $routeProvider.when('/home', {
     templateUrl: 'home.html',
     controller: 'HomeController'
   });
 
+  $routeProvider.when('/create-event', {
+    templateUrl: 'create-event.html',
+    controller: 'HomeController'
+  });
+
   $routeProvider.when('/event', {
     templateUrl: 'event.html',
+    controller: 'HomeController'
+  });
+
+  $routeProvider.when('/profile', {
+    templateUrl: 'profile.html',
     controller: 'HomeController'
   });
 
@@ -29,6 +34,16 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
 
   $routeProvider.when('/schedule', {
     templateUrl: 'schedule.html',
+    controller: 'HomeController'
+  });
+
+  $routeProvider.when('/register', {
+    templateUrl: 'register.html',
+    controller: 'HomeController'
+  });
+
+  $routeProvider.when('/contact', {
+    templateUrl: 'contact.html',
     controller: 'HomeController'
   });
 

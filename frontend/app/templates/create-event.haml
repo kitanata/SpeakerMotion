@@ -1,0 +1,30 @@
+#create-event
+  %h2 Create a new event.
+  .row
+    .col-md-offset-2.col-md-8
+      %form.form-horizontal{role:"form"}
+        .form-group
+          %label.col-sm-2.control-label{for:"name"} Event Name
+          .col-sm-10
+            %input#name.form-control{type:"text", placeholder:"Super Awesome Con"}
+
+        .form-group
+          %label.col-sm-2.control-label{for:"description"} Description
+          .col-sm-10
+            %textarea#description.form-control{placeholder:"The best convention ever..."}
+
+        .form-group
+          %label.col-sm-2.control-label{for:"logo"} Logo
+          .col-sm-10
+            %input#logo{type:"file"}
+            %p.help-block Upload a logo for your event.
+
+        .form-group
+          %label.col-sm-2.control-label{for:"tags"} Tags:
+          .col-sm-10
+            %input#tags.form-control{type:"text", placeholder:"JQuery, Java, Python, etc..."}
+            %p.hel-block Add some tags for your event(seperate with a ',').
+
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            %button.btn.btn-default{type:"submit"} Create Event

@@ -1,0 +1,28 @@
+#register
+  .col-md-8.col-md-offset-2
+    %h2 Register an account
+    
+    %form.form-horizontal{role:"form"}
+      .form-group
+        %label.col-sm-2.control-label{for:"name"} Your Name
+        .col-sm-10
+          %input#name.form-control{type:"text", placeholder:"John Doe"}
+
+      .form-group
+        %label.col-sm-2.control-label{for:"email"} Your Email
+        .col-sm-10
+          %input#email.form-control{type:"email", placeholder:"Your email"}
+
+      .form-group
+        %label.col-sm-2.control-label{for:"password"} Your Password
+        .col-sm-10
+          %input#password.form-control{type:"password", placeholder:"Your password"}
+
+      .form-group
+        %label.col-sm-2.control-label{for:"confirm"} Confirm Your Password
+        .col-sm-10
+          %input#confirm.form-control{type:"password", placeholder:"Your password"}
+
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          %button.btn.btn-default{type:"submit"} Send

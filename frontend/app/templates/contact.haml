@@ -1,0 +1,23 @@
+#contact
+  .col-md-8.col-md-offset-2
+    %h2 Contact Us
+
+    %form.form-horizontal{role:"form"}
+      .form-group
+        %label.col-sm-2.control-label{for:"name"} Your Name
+        .col-sm-10
+          %input#name.form-control{type:"text", placeholder:"John Doe"}
+
+      .form-group
+        %label.col-sm-2.control-label{for:"email"} Your Email
+        .col-sm-10
+          %input#name.form-control{type:"email", placeholder:"Your email"}
+
+      .form-group
+        %label.col-sm-2.control-label{for:"email"} Comment
+        .col-sm-10
+          %textarea#comment.form-control{placeholder:"Comment..."}
+
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          %button.btn.btn-default{type:"submit"} Send
