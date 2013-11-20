@@ -12,6 +12,15 @@ button {
   margin-bottom: 0px !important;
 }
 
+.alert.alert-info {
+    background-color: @orange;
+    background-image: linear-gradient(lighten(@orange, 5%) 0px, @orange 100%);
+    border: @orange;
+    border-top: lighten(@orange, 5%);
+    color: white;
+    box-shadow: rgba(0,0,0,0.5) 0px 1px 2px 0px;
+}
+
 html {
     height: 100%;
 }
@@ -137,118 +146,149 @@ body {
 }
 
 #schedule-manager {
-    display: flex;
-    position: relative;
-    justify-content: space-around;
-    overflow: hidden;
 
-    .card-panel {
-        flex: 0 1 260px;
-        margin-top: 40px;
-    }
-
-    .card-wall {
-        flex: 10 1 260px;
-        margin-top: 40px;
-        margin-left: 140px;
-        white-space: nowrap;
-
-        overflow-x: scroll;
-        z-index: 1;
-    }
-
-    .time-guides {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 40px;
-        margin-left: 40px;
-
-        .guide {
-            margin-top: 171px;
-            border-bottom: 1px dashed #aaa;
-            color: #666;
-            font-size: 28px;
-            line-height: 28px;
-
-            &:first-child {
-                margin-top: 46px;
-            }
-        }
-    }
-
-    .card-column {
-        display: inline-block;
-        vertical-align: top;
-        width: 260px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        min-height: 2400px;
-        color: #666;
-
-        h2 {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 0px;
-        }
-
-        .card-list {
-            margin: 10px;
-
-            .card {
-                margin-top: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-
-                h4 {
-                    padding: 5px;
-                    border-bottom: 1px solid #ccc;
-                }
-
-                p { padding: 5px; }
-
-                &.min15 { 
-                    h4 {
-                        height: 28px; 
-                        margin-bottom: 0px;
-                        border-bottom: none;
-                    }
-
-                    p { display: none; }
-                }
-                &.min30 p { height: 28px; }
-
-                &.min45 p { height: 78px; }
-
-                &.min60 p { height: 128px; }
-
-                &.min75 p { height: 178px; }
-
-                &.min90 p { height: 228px; }
-
-                &:not(:first-child) {
-                    margin-top: 10px;
-                }
-            }
-        }
-    }
-
-    .card-wall .card-column {
-        margin-left: 20px;
-    }
-
-    #settings {
-        .input-group {
-            margin-top: 20px;
-
-            textarea {
-                height: 100px;
-            }
-        }
+    .button-bar {
+        display: flex;
+        margin-top: -10px;
 
         button {
-            margin-top: 20px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .del-room {
+            margin-left: 20px;
+            color: maroon;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        .room-list-section {
+            flex: 10 1 100px;
+
+            .alert {
+                margin-top: 10px;
+                margin-right: 40px;
+                padding: 5px 10px;
+            }
+        }
+
+        .add-room-section {
+            flex: 0 1 305px;
+            margin-top: 10px;
+
+            button {
+                margin-left: 10px;
+                margin-top: 0px;
+            }
         }
     }
 
+    .schedule-area {
+        display: flex;
+        position: relative;
+        justify-content: space-around;
+        overflow: hidden;
+
+        .card-panel {
+            flex: 0 1 260px;
+            margin-top: 40px;
+        }
+
+        .card-wall {
+            flex: 10 1 260px;
+            margin-top: 40px;
+            margin-left: 140px;
+            white-space: nowrap;
+
+            overflow-x: scroll;
+            z-index: 1;
+        }
+
+        .time-guides {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 40px;
+            margin-left: 40px;
+
+            .guide {
+                margin-top: 171px;
+                border-bottom: 1px dashed #aaa;
+                color: #666;
+                font-size: 28px;
+                line-height: 28px;
+
+                &:first-child {
+                    margin-top: 46px;
+                }
+            }
+        }
+
+        .card-column {
+            display: inline-block;
+            vertical-align: top;
+            width: 260px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            min-height: 2400px;
+            color: #666;
+
+            h2 {
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+                margin-bottom: 0px;
+            }
+
+            .cardlist {
+                min-height: 800px;
+                margin: 10px;
+
+                .card {
+                    margin-top: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+
+                    h4 {
+                        padding: 5px;
+                        border-bottom: 1px solid #ccc;
+                    }
+
+                    p { 
+                        overflow: scroll;
+                        padding: 5px;
+                    }
+
+                    &.min15 { 
+                        h4 {
+                            height: 28px; 
+                            margin-bottom: 0px;
+                            border-bottom: none;
+                        }
+
+                        p { display: none; }
+                    }
+                    &.min30 p { height: 28px; }
+
+                    &.min45 p { height: 78px; }
+
+                    &.min60 p { height: 128px; }
+
+                    &.min75 p { height: 178px; }
+
+                    &.min90 p { height: 228px; }
+
+                    &:not(:first-child) {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+
+        .card-wall .card-column {
+            margin-left: 20px;
+        }
+    }
 }
