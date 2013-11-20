@@ -34,71 +34,24 @@
     .guide 7pm
 
   .card-wall
-    .card-column
-      %h2 Cartoon 1
-      .card-list
-        .card.min30
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min15
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min15
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min90
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min60
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min30
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-
-    .card-column
-      %h2 Cartoon 2
-      .card-list
-        .card.min90
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min15
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min30
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min75
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min15
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min15
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-
-
-    .card-column
-      %h2 Windsor Hall
-      .card-list
-        .card.min60
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-        .card.min60
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-
-    .card-column
-      %h2 Jefferson Room
-      .card-list
-        .card.min45
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
-
-    .card-column
-      %h2 The Guild
-      .card-list
-        .card.min45
-          %h4 Blah Blah Blah
-          %p Blah Blah Blah
+    .card-column{ng-repeat:"room in rooms"}
+      %h2 {{room.name}}
+      /.card-list
+      /  .card.min30
+      /    %h4 Blah Blah Blah
+      /    %p Blah Blah Blah
+      /  .card.min15
+      /    %h4 Blah Blah Blah
+      /    %p Blah Blah Blah
+      /  .card.min45
+      /    %h4 Blah Blah Blah
+      /    %p Blah Blah Blah
+      /  .card.min90
+      /    %h4 Blah Blah Blah
+      /    %p Blah Blah Blah
+      /  .card.min60
+      /    %h4 Blah Blah Blah
+      /    %p Blah Blah Blah
+      /  .card.min30
+      /    %h4 Blah Blah Blah
+      /    %p Blah Blah Blah

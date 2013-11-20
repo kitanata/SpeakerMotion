@@ -3,9 +3,9 @@
 
   .col-md-3
     .well.overview
-      %h2 PyOhio
+      %h2 {{event.name}}
 
-      %img{src:"/img/startup_weekend.jpg"}
+      %img{src:"{{event.img}}"}
 
       .progress-container
         Proposals Recieved
@@ -18,7 +18,7 @@
           .progress-bar.progress-bar-success{role:"progressbar", aria-valuenow:"10", aria-valuemin:"0", aria-valuemax:"100", style:"width:10%"}
 
       .description
-        Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. 
+        {{event.description}}
 
       .proposal-link
-        %a{href:"http://spkrmo.co/5fQz2348"} http://spkrmo.co/5fQz2348
+        %a{href:"{{event.app_link}}"} {{event.app_link}}

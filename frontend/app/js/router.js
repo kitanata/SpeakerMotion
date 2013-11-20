@@ -14,7 +14,7 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
 
   $routeProvider.when('/event', {
     templateUrl: 'event.html',
-    controller: 'HomeController'
+    controller: 'EventController'
   });
 
   $routeProvider.when('/profile', {
@@ -34,7 +34,7 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
 
   $routeProvider.when('/schedule', {
     templateUrl: 'schedule.html',
-    controller: 'HomeController'
+    controller: 'ScheduleController'
   });
 
   $routeProvider.when('/register', {

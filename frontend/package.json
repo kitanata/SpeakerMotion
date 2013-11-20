@@ -17,7 +17,8 @@
     "lineman": ">=0.11.6",
     "coffee-script": "~1.6.3",
     "grunt-haml": "~0.8.0",
-    "grunt-contrib-copy": "~0.4.1"
+    "grunt-contrib-copy": "~0.4.1",
+    "restangular": "~1.1.8"
   },
   "engines": {
     "node": "~>0.10.5",
