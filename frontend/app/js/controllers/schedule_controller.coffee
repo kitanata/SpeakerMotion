@@ -6,7 +6,7 @@ angular.module("app").controller "ScheduleController", ($scope, Restangular) ->
         $scope.rooms = rooms;
 
     event.getList('unscheduled').then (unscheduled) ->
-        $scope.unscheduled = unscheduled;
+        $scope.unscheduled = _.sortBy unscheduled, (x) -> 5 - x.rating
 
     $scope.new_room_name = "";
 

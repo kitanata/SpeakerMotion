@@ -24,28 +24,32 @@
       .card-column
         %h2 Unscheduled
         .cardlist
-          .card.min45{ng-repeat:"card in unscheduled"}
-            %h4 {{card.title}}
+          .card{class:"min{{card.length}}", ng-repeat:"card in unscheduled"}
+            %h4
+              {{card.title}}
+              .pull-right {{card.rating}}
             %p {{card.abstract}}
 
-    /.time-guides
-    /  .guide 8am
-    /  .guide 9am
-    /  .guide 10am
-    /  .guide 11am
-    /  .guide 12pm
-    /  .guide 1pm
-    /  .guide 2pm
-    /  .guide 3pm
-     / .guide 4pm
-    /  .guide 5pm
-    /  .guide 6pm
-    /  .guide 7pm
+    .time-guides
+      .guide 8am
+      .guide 9am
+      .guide 10am
+      .guide 11am
+      .guide 12pm
+      .guide 1pm
+      .guide 2pm
+      .guide 3pm
+      .guide 4pm
+      .guide 5pm
+      .guide 6pm
+      .guide 7pm
 
     .card-wall
       .card-column{ng-repeat:"room in rooms", ng-show:"room.show"}
         %h2 {{room.name}}
         .cardlist
-          .card.min45{ng-repeat:"card in room.talks"}
-            %h4 {{card.title}}
+          .card{class:"min{{card.length}}", ng-repeat:"card in room.talks"}
+            %h4
+              {{card.title}}
+              .pull-right {{card.rating}}
             %p {{card.abstract}}
