@@ -16,14 +16,17 @@ angular.module("app").directive 'card', ->
 
             e.dataTransfer.setData('card', JSON.stringify(scope.card))
             $(e.currentTarget).addClass('drag')
-            return false
+            false
         , false
 
         el.addEventListener 'dragenter', (e) =>
             sessionStorage.setItem('after', scope.card.id)
-            return false;
+            $('.drop-indicator').remove()
+            $("<div class='drop-indicator'>&nbsp;</div>").insertAfter($(e.currentTarget))
+            false
 
         el.addEventListener 'dragend', (e) ->
             $(e.currentTarget).removeClass('drag')
-            return false;
+            $('.drop-indicator').remove()
+            false
         , false

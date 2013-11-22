@@ -17,8 +17,11 @@ angular.module("app").controller "ScheduleController", ($scope, Restangular) ->
                 event: 1
                 name: $scope.new_room_name
                 show: true
+                talks: []
 
             $scope.new_room_name = ""
 
     $scope.removeRoom = (room) ->
+        $scope.unscheduled = _.union($scope.unscheduled, room.talks)
+        $scope.unscheduled = _.sortBy $scope.unscheduled, (x) -> 5 - x.rating
         $scope.rooms = _($scope.rooms).without(room)

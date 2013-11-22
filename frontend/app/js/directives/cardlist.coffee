@@ -4,16 +4,24 @@ angular.module("app").directive 'cardlist', ->
         el = element[0]
 
         el.addEventListener 'dragover', (e) ->
+            console.log "cardlist dragover"
+
             e.dataTransfer.dropEffect = 'move'
             if e.preventDefault
                 e.preventDefault()
 
             $(e.currentTarget).addClass('over')
+
             return false
         , false
 
-        el.addEventListener 'dragenter', (e) ->
+        el.addEventListener 'dragenter', (e) =>
             $(e.currentTarget).addClass('over')
+
+            if scope.room and scope.room.talks.length <= 1
+                $('.drop-indicator').remove()
+                $(el).append("<div class='drop-indicator'>&nbsp;</div>")
+
             return false
         , false
 
@@ -31,7 +39,6 @@ angular.module("app").directive 'cardlist', ->
             card = JSON.parse(e.dataTransfer.getData('card'))
             from = e.dataTransfer.getData('from')
             after = sessionStorage.getItem('after')
-            console.log after
 
             if scope.room
                 rooms = scope.$parent.rooms
@@ -58,8 +65,9 @@ angular.module("app").directive 'cardlist', ->
                 for talk, i in scope.room.talks
                     talk.room_order = i
             else
-                scope.unscheduled.push(card)
-                scope.unscheduled = _.sortBy scope.unscheduled, (x) -> 5 - x.rating
+                if from != "unscheduled"
+                    scope.unscheduled.push(card)
+                    scope.unscheduled = _.sortBy scope.unscheduled, (x) -> 5 - x.rating
 
             scope.$apply('drop()')
 
