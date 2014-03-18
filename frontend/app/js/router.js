@@ -2,17 +2,22 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
 
-  $routeProvider.when('/home', {
+  $routeProvider.when('/', {
     templateUrl: 'home.html',
     controller: 'HomeController'
   });
 
-  $routeProvider.when('/create-event', {
+  $routeProvider.when('/dashboard', {
+    templateUrl: 'dashboard.html',
+    controller: 'DashboardController'
+  });
+
+  $routeProvider.when('/event/new', {
     templateUrl: 'create-event.html',
     controller: 'HomeController'
   });
 
-  $routeProvider.when('/event', {
+  $routeProvider.when('/event/:id', {
     templateUrl: 'event.html',
     controller: 'EventController'
   });
@@ -29,7 +34,7 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
 
   $routeProvider.when('/review', {
     templateUrl: 'review.html',
-    controller: 'HomeController'
+    controller: 'ReviewController'
   });
 
   $routeProvider.when('/schedule', {
@@ -39,6 +44,11 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
 
   $routeProvider.when('/register', {
     templateUrl: 'register.html',
+    controller: 'HomeController'
+  });
+
+  $routeProvider.when('/billing', {
+    templateUrl: 'billing.html',
     controller: 'HomeController'
   });
 
@@ -58,6 +68,6 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     // }
   });
 
-  $routeProvider.otherwise({ redirectTo: '/home' });
+  $routeProvider.otherwise({ redirectTo: '/' });
 
 });

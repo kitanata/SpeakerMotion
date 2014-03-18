@@ -1,0 +1,6 @@
+#dashboard
+  %ul
+    %li{ng-repeat:"event in events track by $index"}
+      %a{href:"/event/{{event.id}}"} {{event.name}}
+
+  %a{href:"/event/new"} Create a new event

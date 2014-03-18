@@ -1,140 +1,21 @@
 #review-manager
-  .col-md-3
-    .well
-      Cards go here
+  .card-column
+    %h2 Unreviewed ({{unreviewed.length}})
+    .static-cardlist
+      .static-card{class:"min{{scard.length}}", ng-repeat:"scard in unreviewed", ng-click:"reviewCard(scard)"}
+        %h4 {{scard.title}}
+        %p {{scard.abstract}}
 
-  .col-md-6
-    %ul.nav.nav-tabs
-      %li.active
-        %a{href:"#register-tab", data-toggle:"tab"}
-          Register
-      %li
-        %a{href:"#add-talk-tab", data-toggle:"tab"}
-          Add Talk
-      %li
-        %a{href:"#questions-tab", data-toggle:"tab"}
-          Questions
-      %li
-        %a{href:"#review-tab", data-toggle:"tab"}
-          Review
+  .review-form-area
+    .alert.alert-info{ng-show:"!!!unreviewed.length"}
+      There are no talks for you to review yet. Check back later.
 
-    .tab-content
-      #register-tab.tab-pane.active
-        .well
-          .create-account-option
-            %h2 Create an account
+    .well{ng-show:"!!unreviewed.length"}
+      Review Area for the currently selected talk.
 
-            .input-group
-              %span.input-group-addon Email
-              %input.form-control{type:"text"}
-
-            .input-group
-              %span.input-group-addon Password
-              %input.form-control{type:"text"}
-
-            .input-group
-              %span.input-group-addon Confirm
-              %input.form-control{type:"text"}
-
-          %hr
-
-          .input-group.required
-            %span.input-group-addon Full Name
-            %input.form-control{type:"text"}
-
-          .input-group.required
-            %span.input-group-addon Bio
-            %textarea.form-control{placeholder: "<your name> is known for..."}
-
-          .input-group
-            %span.input-group-addon @twitter
-            %input.form-control{type:"text"}
-
-          .input-group
-            %span.input-group-addon Linkedin
-            %input.form-control{type:"text"}
-
-          .input-group
-            %span.input-group-addon Facebook
-            %input.form-control{type:"text"}
-
-          .input-group
-            %span.input-group-addon GitHub
-            %input.form-control{type:"text"}
-
-          %button#register.btn.btn-info
-            Register and Continue
-
-      #add-talk-tab.tab-pane
-        .well
-          .input-group.required
-            %span.input-group-addon Title
-            %input.form-control{type:"text"}
-
-          .input-group.required
-            %span.input-group-addon Description
-            %textarea.form-control
-
-          .input-group
-            %span.input-group-addon Slides Link
-            %input.form-control{type:"text"}
-
-          .input-group
-            %span.input-group-addon Video Link
-            %input.form-control{type:"text"}
-
-          .input-group
-            %span.input-group-addon Document Link
-            %input.form-control{type:"text"}
-
-          .input-group
-            %span.input-group-addon Document Link
-            %input.form-control{type:"text"}
-
-         %button#submit-talk.btn.btn-info
-          Submit Talk Proposal
-
-      #questions-tab.tab-pane
-        .well
-          .input-group
-            %label{for:"q1"} Agree Question?
-            %select#q1.form-control{type:"text"}
-              %option{val:"1"} 1 - Strongly Disagree
-              %option{val:"2"} 2 - Somewhat Disagree
-              %option{val:"3"} 3 - No Opinion
-              %option{val:"4"} 4 - Somewhat Agree
-              %option{val:"5"} 5 - Strongly Agree
-
-          .input-group
-            %label{for:"q2"} Number Question?
-            %input#q2.form-control{type:"number", value:"1"}
-
-          .input-group
-            %label{for:"q3"} Text Question?
-            %input#q3.form-control{type:"text", value:"..."}
-
-          .input-group
-            %label{for:"q3"} Text Question?
-            %input#q3.form-control{type:"text", value:"..."}
-
-          .input-group
-            %label{for:"q3"} Text Question?
-            %input#q3.form-control{type:"text", value:"..."}
-
-         %button#review-talk.btn.btn-info
-          Review Talk Proposal
-
-      #review-tab.tab-pane
-        .well
-          %div
-            Overview of the talk proposal
-
-          %button#finalize-talk.btn.btn-info
-            Finalize Talk Proposal
-
-  .col-md-3
+  .profile-area
     .well.overview
-      {{#if userLoggedIn}}
+      .profile{ng-show:"userLoggedIn"}
         %h2 Raymond Chandler III
         %img{src:"/static/img/startup_weekend.jpg"}
 
@@ -145,17 +26,5 @@
 
         .description
           Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. 
-      {{else}}
-        %h3 Already have an account?
-
-        %label{for:"username"} Username:
-        %input#username.form-control{type:"text"}
-
-        %label{for:"password"} Password:
-        %input#password.form-control{type:"text"}
-
-        %button.btn.btn-info#login
-          Login
-      {{/if}}
     
     %a.btn.btn-info{href:"/schedule-manager"} Next Step
